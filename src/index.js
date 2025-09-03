@@ -4,10 +4,18 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+<head> 
+  <meta name="description" content="your text goes here"/>
+  <meta name="og:title" content=""/>
+  <meta name="og:description" content=""/>
+  <meta name="og:image" content=""/>
+
+</head>
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <App />
+    
   </React.StrictMode>
 );
 
