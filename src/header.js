@@ -6,7 +6,7 @@ function Header() {
         <header>
             <div className="container">
                 <div className="logo">LITTLE LEMON</div>
-                <Nav />
+                 <Nav />
             </div>
         </header>
     );
