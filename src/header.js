@@ -8,7 +8,9 @@ function Header() {
                 <div className="logo">LITTLE LEMON</div>
                  <Nav />
             </div>
+            
         </header>
+        
     );
 }
 

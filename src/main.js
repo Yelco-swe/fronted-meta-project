@@ -1,6 +1,34 @@
-import React from 'react';
+import React, { useReducer } from 'react';
+import BookingPage from './BookingPage';
+
+
+
+const initialTimes = [
+    "17:00", "18:00", "19:00", "20:00", "21:00"
+];
+
+function initializeTimes() {
+    const today = new Date();
+    if (typeof window.fetchAPI === "function") {
+        return window.fetchAPI(today);
+    }
+    return [];
+}
+
+function updateTimes(state, action) {
+    if (action.type === 'dateChange') {
+        const selectedDate = new Date(action.date);
+        if (typeof window.fetchAPI === "function") {
+            return window.fetchAPI(selectedDate);
+        }
+        return [];
+    }
+    return state;
+}
 
 function Main() {
+    const [availableTimes, dispatch] = useReducer(updateTimes, [], initializeTimes);
+
     return (
         <main>
             <section className="hero">
@@ -61,6 +89,9 @@ function Main() {
                     </article>
                 </div>
             </section>
+
+            {/* Aquí se muestra el formulario de reservas */}
+            <BookingPage availableTimes={availableTimes} dispatch={dispatch} />
         </main>
     );
 }
